@@ -1,0 +1,10 @@
+.bg-first{
+    background-color:rgba(9, 4, 248, 0.589);
+}
+.text-color{
+    color:rgba(4, 69, 248, 0.678);;
+}
+.price-config{
+    font-size: 2rem;
+    font-weight: bold;
+}
