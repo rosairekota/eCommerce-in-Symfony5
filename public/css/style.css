@@ -8,3 +8,6 @@
     font-size: 2rem;
     font-weight: bold;
 }
+.admin-action{
+    display: inline-block;
+}

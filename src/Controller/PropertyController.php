@@ -25,7 +25,7 @@ class PropertyController extends AbstractController
     /**
      * @Route("/biens", name="property_index")
      */
-    public function index( ObjectManager $em)
+    public function index()
     {
         $property=$this->repo->findAllVisible();
        // $this->em->flush();

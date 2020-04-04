@@ -1,0 +1,31 @@
+{{form_start(formProperty)}}
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-4">{{form_row(formProperty.title)}}</div>
+        <div class="col-md-4">{{form_row(formProperty.surface)}}</div>
+        <div class="col-md-4">{{form_row(formProperty.price)}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">{{form_row(formProperty.rooms)}}</div>
+        <div class="col-md-2">{{form_row(formProperty.bedrooms)}}</div>
+        <div class="col-md-2">{{form_row(formProperty.heat)}}</div>
+        <div class="col-md-2">{{form_row(formProperty.floor)}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">{{form_row(formProperty.adress)}}</div>
+        <div class="col-md-4">{{form_row(formProperty.city)}}</div>
+        <div class="col-md-2">{{form_row(formProperty.postal_code)}}</div>
+        <div class="col-md-2">{{form_row(formProperty.sold)}}</div>
+    </div>
+    {{form_widget(formProperty)}}
+</div>
+
+<div class="row">
+    <div class="col-sm-3 offset-sm-4">
+        <button type="submit"
+            class="{% if bouton=='editer'%}btn btn-success btn-block{% else %}btn btn-primary btn-block{% endif %}">
+            {{bouton|default('enregistrer')}}
+        </button>
+    </div>
+</div>
+{{form_end(formProperty)}}

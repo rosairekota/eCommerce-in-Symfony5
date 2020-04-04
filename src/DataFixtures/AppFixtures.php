@@ -11,7 +11,7 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker=\Faker\Factory::create();
-        for ($i=1; $i < mt_rand(4,6); $i++) { 
+        for ($i=1; $i < 30; $i++) { 
             $property=new Property();
             $property->setTitle($faker->sentence())
                     ->setPrice(2000)
