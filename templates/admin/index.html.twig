@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin-Home{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="jumbotron"></div>
+    <div class="row">
+        <div class="col-sm-8">
+            <table class="table">
+                <thead>
+                    <th>Produits</th>
+                    <th>Vendeurs</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{product.title}}</td>
+                        <td class="text-warning">Null</td>
+                        <td>
+                            <a href="{{path('admin_edit',{'id':product.id})}}" class="btn btn-secondary">Editer</a>
+
+                            <form action="{{ path('admin_delete',{'id':product.id})}}" method="post"
+                                onsubmit="confirm('voulez-vous vraiment supprimer ?')">
+                                <input type="hidden" name="_token" value="{{csrf_token('delete'~ product.id)}}">
+                                <input type="hidden" name="_method" name="DELETE">
+                                <button type="submit" class="btn btn-danger">Suprimmer</button>
+
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-4">
+            <h5 class="text-primary text-right">
+                <a href="{{path('admin_create')}}" class="btn btn-primary">Creer un nouveau produit</a>
+            </h5>
+        </div>
+    </div>
+</div>
+{% endblock %}

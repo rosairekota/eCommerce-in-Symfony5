@@ -1,0 +1,15 @@
+<div class="card">
+    <img src="" alt="">
+    <div class="card-body">
+        <h5 class="card-title">{{seller.name}}</h5>
+        <div>
+            <h6 class="card-title">Experience</h6>
+            <p class="card-text">{{seller.experience}}</p>
+        </div>
+        <a href="{{path('cart_add',{id:product.id,slug:product.slug})}}" class="btn btn-success float-right">
+            <i class="fa fa-shopping-cart mr-1"></i>
+            Ajouter
+        </a>
+    </div>
+
+</div>

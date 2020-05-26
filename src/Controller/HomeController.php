@@ -2,18 +2,20 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\ProductRepository;
+use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Repository\PropertyRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/", name="home")
+     * @Route("/about", name="home")
      */
-    public function index(PropertyRepository $repo)
+
+    public function index(ProductRepository $repo, PaginatorInterface $paginator, Request $request)
     {
-        $properties=$repo->findLatest();
-        return $this->render('pages/index.html.twig',compact('properties'));
+        return $this->render('pages/toto.html.twig');
     }
 }

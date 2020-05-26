@@ -1,0 +1,30 @@
+.about-details-area{
+    .about-tittle{
+        h2{
+            color: #0e0e0e;
+            font-size: 50px;
+            font-weight: 900;
+            text-transform: capitalize;
+            @media #{$xs}{
+                font-size: 40px;
+            }
+            @media #{$sm}{
+                font-size: 40px;
+            }
+        }
+    }
+    .about-details{
+        .pear1{
+            color: #0e0e0e;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            @media #{$sm}{
+                font-size: 17px;
+            }
+        }
+        .pear2{
+
+        }
+    }
+}

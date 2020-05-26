@@ -1,0 +1,19 @@
+{{form_start(formPruducts)}}
+<div class="img-thumbnail mt-5 p-2">
+    <div class="row">
+        <div class="col-md-8"> {{form_row(formPruducts.title)}}</div>
+        <div class="col-md-4">{{form_row(formPruducts.price)}}</div>
+        <!-- <div class="col-md-6 offset-md-3">{#form_row(formPruducts.image)#}</div> -->
+    </div>
+    {{form_widget(formPruducts)}}
+</div>
+
+<div class="row">
+    <div class="col-sm-3 offset-sm-4">
+        <button type="submit"
+            class="{% if bouton=='editer'%}btn btn-success btn-block{% else %}btn btn-primary btn-block{% endif %}">
+            {{bouton|default('enregistrer')}}
+        </button>
+    </div>
+</div>
+{{form_end(formPruducts)}}

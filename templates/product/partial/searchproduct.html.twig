@@ -1,0 +1,18 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <form action="{{path('product_search')}}" method="post" class="form-group">
+                {{form_start(form)}}
+                <div class="row">
+                    <div class="col-md-8">
+                        {{form_row(form.title)}}
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-success">Rechercher un service</button>
+                    </div>
+                </div>
+                {{form_end(form)}}
+            </form>
+        </div>
+    </div>
+</div>

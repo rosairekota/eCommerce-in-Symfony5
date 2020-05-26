@@ -1,0 +1,19 @@
+{{form_start(form)}}
+<div class="img-thumbnail mt-5 p-2">
+    <div class="row">
+        <div class="col-md-4"> {{form_row(form.name)}}</div>
+        <div class="col-md-4">{{form_row(form.email)}}</div>
+        <div class="col-md-4">{{form_row(form.telephone)}}</div>
+    </div>
+    {{form_widget(form)}}
+</div>
+
+<div class="row">
+    <div class="col-sm-3 offset-sm-4">
+        <button type="submit"
+            class="{% if bouton=='editer'%}btn btn-success btn-block{% else %}btn btn-primary btn-block{% endif %}">
+            {{bouton|default('enregistrer')}}
+        </button>
+    </div>
+</div>
+{{form_end(form)}}

@@ -1,0 +1,118 @@
+.david-droga-area{
+    @media #{$md}{
+      padding-bottom: 70px;
+    }
+    @media #{$sm}{
+        padding-bottom: 0px;
+    }
+    @media #{$xs}{
+        padding-bottom: 0px;
+    }
+    .single-david{
+        .david-img{
+            overflow: hidden;
+            & img{
+                width: 100%;
+                transform:scale(1);
+                @include transition(.7s);
+                }
+        }
+        .david-captoin{
+            padding: 40px 57px 0px 0px;
+            @media #{$md}{
+                padding: 36px 0px 7px 0px;
+            }
+            @media #{$sm}{
+                padding: 36px 0px 7px 0px;
+            }
+            @media #{$xs}{
+                padding: 36px 0px 7px 0px;
+            }
+            .david-info{
+                & li{
+                    display: inline-block;
+                    margin-right: 14px;
+                    padding-right: 14px;
+                    border-right: 1px solid #222;
+                    line-height: 1;
+                    margin-bottom: 16px;
+                    text-transform: uppercase;
+                    @media #{$xs}{
+                        margin-right: 1px;
+                        padding-right: 5px;
+                        padding-right: 12px;
+                    }
+                    &:last-child{
+                        margin-right: 0px;
+                        padding-right: 0px;
+                        border-right: 0;
+                    }
+                }
+            }
+            & h2{
+
+                & a{
+                    color:#282828;
+                    font-weight: 700;
+                    font-size: 25px;
+                    line-height: 1.5;
+                    padding-right: 56px;
+                    margin-bottom:17px;
+                    text-decoration: none;
+                    display: block;
+                    @media #{$lg}{
+                        padding-right: 32px;
+                    }
+                    @media #{$md}{
+                        padding-right: 6px;
+                        font-size: 23px;
+                    }
+                    @media #{$xs}{
+                        padding-right: 0px;
+                        font-size: 20px;
+                    }
+                    @media #{$sm}{
+                    }
+                }
+            }
+            & a{
+                color: #282828;
+                font-size: 16px;
+               
+                &:hover{
+                    color: $theme_color;
+                }
+            }
+            span {
+                color:#04dbec ;
+                font-size: 16px;
+                font-weight: 400;
+                margin-bottom: 27px;
+                display: block;
+                padding-left: 65px;
+                position: relative;
+                text-transform: uppercase;
+                &::before {
+                    position: absolute;
+                    content: "";
+                    width: 40px;
+                    height: 2px;
+                    background: #04dbec;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: 0;
+                }
+            }
+        }
+    }
+}
+
+.david-droga-area .single-david .david-captoin a:hover::before{
+    background:$theme_color;
+}
+// .single-david:hover .david-img img{
+// 	transform:scale(1.1);
+// }
+.david-img:hover .david-img img{
+	transform:scale(1.1);
+}

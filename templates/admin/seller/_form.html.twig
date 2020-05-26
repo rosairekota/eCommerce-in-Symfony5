@@ -1,0 +1,17 @@
+{{form_start(form)}}
+<div class="form-group img-thumbnail mt-5 p-2">
+    <div class="col">
+        {{form_widget(form)}}
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-sm-3 offset-sm-4">
+        <button type="submit"
+            class="{% if bouton=='editer'%}btn btn-success btn-block{% else %}btn btn-primary btn-block{% endif %}">
+            {{bouton|default('enregistrer')}}
+        </button>
+    </div>
+</div>
+{{form_end(form)}}

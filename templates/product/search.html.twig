@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boutique!{% endblock %}
+
+{% block body %}
+{% include 'pages/partials/banner.html.twig' %}
+
+<div class="container mt-5">
+    <div class="row">
+        {% for product in products %}
+        <div class="col-xs">
+
+            {% for seller in product.sellers %}
+            <div class="col-xs m-3">
+                {% include "product/partial/_card_Product_seller.html.twig" %}
+            </div>
+
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="pagination">
+        {{ knp_pagination_render(products) }}
+    </div>
+</div>
+{% include 'pages/partials/testimoni.html.twig' %}
+{% endblock %}

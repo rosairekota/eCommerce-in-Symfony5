@@ -1,0 +1,84 @@
+{% if navbar is defined and navbar=='admin' %}
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Boutique SDA</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link {% if current_menu is defined and current_menu =='product_index' %}active {% endif %}"
+                    href="{{path('product_index')}}">Espace Client</a>
+            </li>
+            <li class="nav-item ml-auto">
+                <a class="nav-link {% if current_menu is defined and current_menu =='product_index' %}active {% endif %}"
+                    href="{{path('admin_index')}}">Gerer Les Produits</a>
+            </li>
+            <li class="nav-item ml-auto">
+                <a class="nav-link {% if current_menu is defined and current_menu =='product_index' %}active {% endif %}"
+                    href="{{path('security_registration')}}">Créer un Utilisateur</a>
+            </li>
+
+
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+            {% if not app.user %}
+            <li class="nav-item mr-auto">
+                <a class="nav-link active " href="{{path('security_login')}}">Connexion</a>
+            </li>
+            {% else %}
+            <li class="nav-item mr-auto">
+                <a class="nav-link active " href="{{path('security_logout')}}">Déconnexion</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+{% else %}
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="{{ path('home')}}">Boutique SDA</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link {% if current_menu is defined and current_menu =='product_index' %}active {% endif %}"
+                    href="{{path('product_index')}}">Produits</a>
+            </li>
+            <li class="nav-item ml-auto">
+                <a class="nav-link {% if current_menu is defined and current_menu =='product_index' %}active {% endif %}"
+                    href="{{path('cart_index')}}">Panier</a>
+            </li>
+
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            {% if customer is defined and customer is not null %}
+            <li class="nav-item mr-auto">
+                <a class="nav-link active " href="{{path('customer_logout')}}">Déconnexion</a>
+            </li>
+
+            {% else %}
+            <li class="nav-item mr-auto">
+                <a class="nav-link active " href="{{path('customer_login')}}">Connexion</a>
+            </li>
+            {% endif %}
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            {% if app.user %}
+            <li class="nav-item mr-auto">
+                <a class="btn btn-primary rounded-circle active" href="{{path('admin_index')}}">Admin</a>
+            </li>
+
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+{% endif %}

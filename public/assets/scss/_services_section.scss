@@ -1,0 +1,114 @@
+.our-services{
+    @media #{$xs}{
+        padding-top: 0px;
+        padding-bottom: 40px;
+    }
+    @media #{$sm}{
+        padding-top: 0px;
+        padding-bottom: 40px;
+    }
+    @media #{$md}{
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+    @media #{$lg}{
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    
+    .single-services{
+        border: 1px solid rgb(218, 252, 239);
+        padding: 79px 52px;
+        @media #{$xs}{
+			padding: 47px 19px;
+        }
+        @media #{$sm}{
+			padding: 47px 19px;
+        }
+        @media #{$md}{
+			padding: 56px 32px;
+        }
+        @media #{$lg}{
+			padding: 46px 23px;
+        }
+        
+        @include transition(.4s);
+        &:hover {
+            box-shadow: 0px 10px 30px 0px rgba(133, 66, 189, 0.1);
+        }
+        .services-ion{
+            span{
+                font-size: 60px;
+                margin-bottom: 13px;
+                color: #014b85;
+                @include transition(.4s);
+            }
+        }
+        .services-cap{
+            padding: 0 16px;
+            @media #{$sm}{
+                padding: 0;
+            }
+            @media #{$md}{
+                padding: 0;
+            }
+            h5{
+                font-weight: 600;
+                font-size: 18px;
+                color: #001f38;
+                line-height: 1.4;
+            }
+        }
+        &:hover{
+            border: 1px solid $theme-color;
+            .services-ion{
+                span{
+                    color: $theme-color;
+                }
+            }
+        }
+    }
+
+}
+
+
+// section Tittle
+.section-tittle{
+    & h2{
+        color: $heading_color;
+        font-size:60px;
+        font-weight:600;
+        line-height:1;
+        margin-bottom: 95px;
+        @media #{$xs}{
+			font-size: 39px;
+            line-height: 1.3;
+            margin-bottom: 50px;
+        }
+    }
+    span{
+        color: #ffb400;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+        display: block;
+    }
+}
+
+.section-tittle2{
+    & h2{
+        margin-bottom: 47px;
+        @media #{$lg}{
+            font-size: 49px;
+        }
+        @media #{$xs}{
+            font-size: 29px;
+        }
+
+    }
+    span{
+        color: #ffb400;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+        display: block;
+    }
+}

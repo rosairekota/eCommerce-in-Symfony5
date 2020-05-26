@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-9">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Telephone</th>
+                        <th>Ville</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for seller in sellers %}
+                    <tr>
+                        <td>{{seller.name}}</td>
+                        <td>{{seller.telephone}}</td>
+                        <td>{{seller.city}}</td>
+                        <td style="display: inline-block;">
+                            <a href="{{path('seller_edit',{id:seller.id})}}" class="btn btn-dark">Editer</a>
+                            <form action="{{path('seller_delete',{id:seller.id})}}" method="post"
+                                onsubmit="confirm('voulez-vous supprimer ?')">
+
+                                {# On GENERE LE TOKEN AVEC LA FONCTION TWIG csrf_token()}#}
+                                <input type="hidden" name="_token" value="{{csrf_token('delete'~ seller.id)}}">
+                                {#---------------------FIN--------------------------#}
+                                {# On INSERE LA METHODE DELETE POUR QUE SYMFONY LE COMPRENNE #}
+                                <input type="hidden" name="_method" value="DELETE">
+                                {#---------------------FIN--------------------------#}
+                                <button type="submit" class="btn btn-danger">Suprimmer</button>
+                            </form>
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-3">
+            <a href="{{path('seller_create')}}" class="btn btn-primary mt-4">Nouveau Vendeur</a>
+        </div>
+    </div>
+</div>
+{% endblock  %}

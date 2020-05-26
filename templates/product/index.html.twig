@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boutique!{% endblock %}
+
+{% block body %}
+{% include 'pages/partials/banner.html.twig' %}
+{% include 'product/partial/searchproduct.html.twig' %}
+<div class="container mt-5">
+    <div class="row">
+        {% for product in products %}
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-title">
+                    <h3>{{product.title}}</h3>
+                </div>
+                {% if product.image is defined %}
+                <img src="{{ asset('images/uploads/')~ product.image}}" alt="img-product"
+                    style="width: 300px;height: 200px;">
+
+                {% else %}
+                <img src="{{ asset('images/uploads/default.jpeg')}}" alt="img-product"
+                    style="width: 300px;height: 200px;">
+                {% endif %}
+                <div class="card-body">
+                    <div class="card-text">
+                        <p class="price-config">Prix: {{product.FormattedPrice}} USD</p>
+                    </div>
+                    {% if not app.user %}
+                    <a href="{{path('cart_add',{id:product.id,slug:product.slug})}}"
+                        class="btn btn-success float-right">
+                        <i class="fa fa-shopping-cart mr-1"></i>
+                        Ajouter
+                    </a>
+                    {% else %}
+                    ajouter au panier
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+    <div class="pagination">
+        {{ knp_pagination_render(products) }}
+    </div>
+</div>
+{% include 'pages/partials/testimoni.html.twig' %}
+{% endblock %}

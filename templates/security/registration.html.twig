@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}inscription{% endblock %}
+
+{% block body %}
+
+<div class="container img-thumbnail mt-5">
+    {{form_start(form_user)}}
+    <div class="row">
+        <div class="col-md-6 offset-md-3">{{form_row(form_user.username)}}</div>
+        <div class="col-md-6 offset-md-3">{{form_row(form_user.email)}}</div>
+        <div class="col-md-6 offset-md-3">{{form_row(form_user.password)}}</div>
+        <div class="col-md-6 offset-md-3">{{form_row(form_user.confirm_password)}}</div>
+        <div class="col-md-3 offset-md-4"><button type="submit" class="btn btn-primary">S'inscrire</button></div>
+
+    </div>
+    {{form_end(form_user)}}
+
+</div>
+
+{% endblock %}

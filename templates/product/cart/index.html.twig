@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CartController!{% endblock %}
+
+{% block body %}
+<div class="container-fluid mt-3">
+    <div class="row">
+        {% if customer is defined %}
+        <div class="col-md-4  bg-dark">
+            <div class="card mt-3">
+                <h5 class="card-title border border-bottom bg-dark text-center" style="color:whitesmoke;">Informations
+                    du Client
+                </h5>
+                <div class="card-body">
+                    <h5 class="card-tezt">Nom :{{customer.name}}</h5>
+                    <table class="table-responsive">
+                        <thead>
+                            <th>Email</th>
+                            <th>Adresse</th>
+                            <th>Telephone</th>
+                            <th>Ville</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{customer.email}}</td>
+                                <td>{{customer.adress}}</td>
+                                <td>{{customer.telephone}}</td>
+                                <td>{{customer.city}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if items|length >0 %}
+        <div class="col-md-5">
+            <table class="table">
+                <thead>
+                    <th>Produit</th>
+                    <th>Prix</th>
+                    <th>Quantite</th>
+                    <th>Total</th>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                    <tr>
+                        <td>{{item.product.title}}</td>
+                        <td>{{item.product.FormattedPrice}} $</td>
+                        <td>{{item.quanity}}</td>
+                        <td>{{item.product.price * item.quanity}} $ </td>
+                        <td><a href="{{path('cart_remove',{id:item.product.id})}}" class="btn btn-danger btn-sm"
+                                onclick="return confirm('Etes-vous vraiment sûr de supprimer?')">
+                                <i class="fas fa-trash">Supprimer</i>
+
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" class="text-right">Totaux:</td>
+                        <td><span>{{total}}</span> $</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="col-md-3">
+            <div class="card mt-3">
+                <div class="card-title bg-dark p-3">
+                    <h3 class="text-secondary text-center">Votre Panier</h3>
+                </div>
+                <div class="card-body">
+                    <h5>Montant A Payer : <span>{{total}}</span> USD</h5>
+                    <hr>
+                    <center><a href="" class="btn btn-secondary mt-3">Valider la commande</a></center>
+                </div>
+            </div>
+        </div>
+
+        {% else %}
+        <div class="col-md-6 offset-md-3 mt-5 alert alert-info">
+            <p class="text-center">Surprise, c'est vide!</p>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}

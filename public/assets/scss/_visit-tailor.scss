@@ -1,0 +1,143 @@
+.visit-tailor-area{
+    display: flex;
+    align-items: center;
+    @media #{$md}{
+      display: block;
+    }
+    @media #{$xs}{
+      display: block;
+    }
+    @media #{$sm}{
+      display: block;
+    }
+    // left Contents
+    .tailor-details{
+        width: 50%;
+        padding: 20px 20px 20px 60px;
+        @media #{$lg}{
+            padding: 20px 20px 20px 50px;
+        }
+        @media #{$md}{
+            width: 100%;
+            padding: 50px 30px;
+        }
+        @media #{$sm}{
+            width: 100%;
+            padding: 50px 30px;
+        }
+        @media #{$xs}{
+            width: 100%;
+            padding: 50px 30px;
+        }
+        span{
+            margin-bottom: 22px; 
+            display: block;
+            color: #7d8da4;
+        }
+        h3{
+            font-size: 35px;
+            display: block;
+            color:$heading-color;
+            font-weight: 700;
+            margin-bottom: 25px;
+            @media #{$lg}{
+                font-size: 33px;
+            }
+            @media #{$md}{
+                font-size: 40px;
+            }
+            @media #{$xs}{
+                font-size: 20px;
+            }
+            @media #{$sm}{
+                font-size: 37px;
+            }
+
+        }
+        p{
+            margin-bottom: 71px;
+            @media #{$xs}{
+                font-size: 15px;
+                margin-bottom: 42px;
+            }
+            @media #{$sm}{
+                font-size: 13px;
+                margin-bottom: 42px;
+            }
+        }
+    }
+    // -Right Contents
+    .tailor-offers{
+        background-image: url(../img/gallery/visit_bg.jpg);
+        background-size: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 700px;
+        width: 50%;
+         @media #{$xs}{
+            width: 100%;
+            height: 500px;
+        }
+        @media #{$sm}{
+            width: 100%;
+            height: 500px;
+        }
+        @media #{$md}{
+            width: 100%;
+            height: 500px;
+        }
+
+    }
+}
+
+// Progress Bar
+
+.skill-ara{
+    .single-skill{
+        margin-bottom: 25px;
+        width: 48%;
+        @media #{$laptop}{
+            width: 80%;
+        }
+        @media #{$lg}{
+            width: 90%;
+        }
+        @media #{$md}{
+            width: 60%;
+        }
+        @media #{$sm}{
+            width: 60%;
+        }
+        @media #{$xs}{
+            width: 100%;
+        }
+        .progress-count{
+            display: flex;
+            justify-content: space-between;
+            p {
+                font-size: 16px;
+                font-weight: 400;
+                text-transform: capitalize;
+                color: #000d21;
+                margin: 0;
+            }
+            span{
+                font-size: 16px;
+                font-weight: 400;
+                text-transform: capitalize;
+                color: #04dbec;
+                margin: 0;
+            }
+        }
+        .progress {
+            height: 3px;
+            border-radius: 0;
+            background: #e5e9f0;
+        }
+        .progress-bar {
+            background-color: #04dbec;
+            width: 30px;
+        }
+    }
+}
