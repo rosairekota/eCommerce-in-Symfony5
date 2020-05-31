@@ -6,6 +6,7 @@ use App\Entity\Post;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -19,7 +20,12 @@ class PostType extends AbstractType
             ])
             ->add('description')
             ->add('posted', null, [
-                'label' => 'Voulez-vous le poster?, si oui, cochez la case'
+                'label' => 'Voulez-vous le poster?, si oui, cochez la case',
+
+            ])
+            ->add('imageFile', FileType::class, [
+                'label'          => 'Choisir l\'image',
+                'required'       => false
             ])
             ->add('user', EntityType::class, [
                 'label'          => 'Choissez l\'administrateur',

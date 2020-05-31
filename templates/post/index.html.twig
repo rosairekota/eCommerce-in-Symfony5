@@ -3,39 +3,61 @@
 {% block title %}Post index{% endblock %}
 
 {% block body %}
-    <h1>Post index</h1>
+<div class="david-droga-area  pb-260 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 offset-md-2">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Posted</th>
-                <th>CreatedAt</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for post in posts %}
-            <tr>
-                <td>{{ post.id }}</td>
-                <td>{{ post.title }}</td>
-                <td>{{ post.description }}</td>
-                <td>{{ post.posted ? 'Yes' : 'No' }}</td>
-                <td>{{ post.createdAt ? post.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('post_show', {'id': post.id}) }}">show</a>
-                    <a href="{{ path('post_edit', {'id': post.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                <div class="container mt-5">
+                    <div class="row card">
+                        <div class="col-md-6">
+                            <h1 class="card-title">Detail de l'article</h1>
 
-    <a href="{{ path('post_new') }}">Create new</a>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="lead"> <a href="{{ path('post_new') }}"
+                                    class="genric-btn primary e-large">Nouvelle
+                                    article</a></p>
+                        </div>
+                    </div>
+
+                    <table class="table table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Titre</th>
+                                <th>Description</th>
+                                <th>Poster</th>
+                                <th>Date de Creation</th>
+                                <th>action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table table-body">
+                            {% for post in posts %}
+                            <tr>
+
+                                <td>{{ post.title }}</td>
+                                <td>{{ post.description }}</td>
+                                <td>{{ post.posted ? 'Yes' : 'No' }}</td>
+                                <td>{{ post.createdAt ? post.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                                <td>
+
+                                    <a href="{{ path('post_edit', {'id': post.id}) }}"
+                                        class="genric-btn success-border small">editer</a>
+                                    {{ include('post/_delete_form.html.twig') }}
+                                </td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="6">no records found</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

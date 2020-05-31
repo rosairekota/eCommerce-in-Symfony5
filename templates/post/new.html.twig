@@ -3,9 +3,34 @@
 {% block title %}New Post{% endblock %}
 
 {% block body %}
-    <h1>Create new Post</h1>
+<div class="david-droga-area  pb-260 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 offset-md-2">
 
-    {{ include('post/_form.html.twig') }}
+                <div class="container mt-5">
 
-    <a href="{{ path('post_index') }}">back to list</a>
+                    <div class="row card p-3 mb-4">
+                        <div class="col-md-12">
+                            <h1 class="card-title text-center">Créer un nouvel article</h1>
+
+                        </div>
+                        <div class="col-md-6">
+                            <a href="{{ path('post_index') }}" class="genric-btn warning radius">Listes
+                                Articles</a>
+
+                        </div>
+                    </div>
+
+
+                    {{ include('post/_form.html.twig') }}
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

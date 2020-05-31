@@ -1,6 +1,27 @@
 {% extends "base.html.twig" %}
 {% block body %}
-<div class="container">
-    {{ include('admin/partials/form.html.twig',{bouton:'editer'}) }}
+<div class="david-droga-area  pb-260 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 offset-md-2">
+
+                <div class="container mt-5 p-5">
+                    <div class="row card p-3 mb-4">
+                        <div class="col-md-12">
+                            <h1 class="card-title text-center">Editer Un Service</h1>
+
+                        </div>
+                        <div class="col-md-6">
+                            <a href="{{ path('post_index') }}" class="genric-btn warning radius">Listes
+                                Articles</a>
+
+                        </div>
+                    </div>
+
+                    {{ include('admin/partials/form.html.twig',{bouton:'editer'}) }}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

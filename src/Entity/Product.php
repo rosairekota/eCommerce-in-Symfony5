@@ -2,13 +2,16 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
 use  Cocur\Slugify\Slugify;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Symfony\Component\HttpFoundation\File\File;
+use Doctrine\Common\Collections\ArrayCollection;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
+ * @Vich\Uploadable
  */
 class Product
 {
@@ -35,13 +38,19 @@ class Product
     private $image;
 
     /**
+     * @var File|null
+     * @Vich\UploadableField(mapping="product_image",fileNameProperty="image")
+     */
+    private $imageFile;
+
+    /**
      * @ORM\Column(type="float")
      */
 
-   
+
     private $price;
 
-   
+
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="products")
      */
@@ -62,17 +71,16 @@ class Product
      */
     private $sellers;
 
-    
 
- 
+
+
 
     public function __construct()
     {
-     
+
         $this->customers = new ArrayCollection();
-        $this->createdAt=new \DateTime();
+        $this->createdAt = new \DateTime();
         $this->sellers = new ArrayCollection();
-       
     }
 
     public function getId(): ?int
@@ -91,8 +99,9 @@ class Product
 
         return $this;
     }
-    public function getSlug(): ?string{
-        $slug=new Slugify();
+    public function getSlug(): ?string
+    {
+        $slug = new Slugify();
         return $slug->slugify($this->title);
     }
 
@@ -120,14 +129,35 @@ class Product
         return $this;
     }
 
+    // GETTERS ET SETTERS POUR LA GESTION D'UPLOAD
+
+
+    /**
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
     public function getPrice(): ?float
     {
         return $this->price;
     }
 
-    public function getFormattedPrice():?string
+    public function getFormattedPrice(): ?string
     {
-        return number_format($this->price,0,'',' ');
+        return number_format($this->price, 0, '', ' ');
     }
 
     public function setPrice(float $price): self
@@ -215,9 +245,4 @@ class Product
 
         return $this;
     }
-
-
-   
-    
-    
 }

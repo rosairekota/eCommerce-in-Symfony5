@@ -6,6 +6,7 @@ use App\Entity\Product;
 use App\Entity\Seller;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -19,6 +20,9 @@ class SellerType extends AbstractType
             ->add('name', TextType::class, [
                 'label'         => 'Nom du Préstataire',
                 'required'      => false
+            ])
+            ->add('imageFile', FileType::class, [
+                'label'     => 'Choisir votre photo',
             ])
             ->add('email')
             ->add('telephone')

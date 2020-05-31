@@ -3,32 +3,88 @@
 {% block title %}Boutique!{% endblock %}
 
 {% block body %}
-{% include 'pages/partials/banner.html.twig' %}
-{% include 'product/partial/searchproduct.html.twig' %}
-<div class="container mt-5">
-    <div class="row">
-        {% for post in posts %}
-        <div class="col-md-4 mb-3">
-            <div class="card">
-                <div class="card-title">
-                    <h3>{{post.title}}</h3>
+{% include 'pages/partials/_bannernew.html.twig' %}
+
+
+
+<!-- Want To Work End -->
+<div class="wantToWork-area w-padding3">
+    <div class="container">
+        <div class="row align-items-end">
+            <div class="col-xl-5 col-lg-7 col-md-8">
+                <div class="wantToWork-caption">
+                    <p>Vous Pouvez Bénéficier de nos avantges...</p>
+                    <h2>Des Services de Haute Qualité.</h2>
                 </div>
-
-                <div class="card-body">
-                    <div class="card-text">
-                        <p class="lead">Prix: {{post.description}}</p>
-                    </div>
-
-
+            </div>
+            <div class="col-xl-7 col-lg-5 col-md-4">
+                <div class="wantToWork-btn f-right">
+                    <a href="#" class="btn btn-ans">En saoir Voir plus</a>
                 </div>
             </div>
         </div>
-
-        {% endfor %}
-    </div>
-    <div class="pagination">
-        {{ knp_pagination_render(posts) }}
     </div>
 </div>
+
+<div class="david-droga-area  pb-160">
+    <div class="container">
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-xl-4 col-lg-4 col-md-4 mb-3">
+
+                <div class="card">
+                    {% if post.imageName %}
+                    <div class="david-img">
+                        <img src="{{ vich_uploader_asset(post,'imageFile')}}" alt="" style="width: 100%;">
+                    </div>
+                    {% else %}
+                    <div class="david-img">
+                        <img src="#" alt="Pas d'image" style="width: 100%;">
+                    </div>
+                    {% endif %}
+                    <div class="card-body">
+                        <div class="single-david mb-30">
+                            <div class="david-captoin">
+                                <ul class="david-info">
+                                    <li>{{post.createdAt|date("d")}} {{dateFR(post.createdAt|date("F"))}},
+                                        {{post.createdAt|date("Y")}} </li>
+                                    <li> 8 Commentaires</li>
+                                </ul>
+                                <h2><a
+                                        href="{{path('blog_show',{id:post.id})}}">{{substring(post.description,{start:0,end:48})}}...</a>
+                                </h2>
+                                <span><a href="{{path('blog_show',{id:post.id})}}">Détail</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="pagination">
+            {{ knp_pagination_render(posts) }}
+        </div>
+    </div>
+
+</div>
+
+<div class="wantToWork-area wantToWork-area2 w-padding2">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-xl-8 col-lg-8 col-md-8">
+                <div class="wantToWork-caption wantToWork-caption2">
+                    <h2>Send us a message if you have an issue with your order.</h2>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4">
+                <a href="#" class="btn btn-black f-right">contact us now</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 {% include 'pages/partials/testimoni.html.twig' %}
 {% endblock %}

@@ -1,10 +1,11 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-<div class="container mt-5">
+
+<div class="container mt-5 p-5">
     <div class="row">
         <div class="col-md-9">
-            <table class="table">
+            <table class="table p-2">
                 <thead>
                     <tr>
                         <th>Nom</th>
@@ -20,7 +21,8 @@
                         <td>{{seller.telephone}}</td>
                         <td>{{seller.city}}</td>
                         <td style="display: inline-block;">
-                            <a href="{{path('seller_edit',{id:seller.id})}}" class="btn btn-dark">Editer</a>
+                            <a href="{{path('seller_edit',{id:seller.id})}}"
+                                class="genric-btn success-border small">Editer</a>
                             <form action="{{path('seller_delete',{id:seller.id})}}" method="post"
                                 onsubmit="confirm('voulez-vous supprimer ?')">
 
@@ -30,7 +32,7 @@
                                 {# On INSERE LA METHODE DELETE POUR QUE SYMFONY LE COMPRENNE #}
                                 <input type="hidden" name="_method" value="DELETE">
                                 {#---------------------FIN--------------------------#}
-                                <button type="submit" class="btn btn-danger">Suprimmer</button>
+                                <button type="submit" class="genric-btn danger-border small">Suprimmer</button>
                             </form>
                         </td>
                     </tr>

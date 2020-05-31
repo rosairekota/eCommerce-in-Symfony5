@@ -3,9 +3,26 @@
 {% block title %}Boutique!{% endblock %}
 
 {% block body %}
-{% include 'pages/partials/banner.html.twig' %}
 
 <div class="container mt-5">
+    <div class="wantToWork-area w-padding3 border-bottom" style="box-shadow: 10px 50px 900px #d2d2d4;">
+        <div class="container">
+            <div class="row align-items-end">
+                <div class="col-xl-5 col-lg-7 col-md-8">
+                    <div class="wantToWork-caption">
+                        <p>Quel avantages ! Tous les Préstataires sont là:</p>
+                        <h2>Faites le choix de votre service.</h2>
+                    </div>
+                </div>
+                <div class="col-xl-7 col-lg-5 col-md-4">
+                    <div class="wantToWork-btn f-right">
+                        <a href="#" class="btn btn-ans">Passer en action</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         {% for product in products %}
         <div class="col-xs">

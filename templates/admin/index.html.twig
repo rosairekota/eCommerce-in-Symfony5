@@ -19,13 +19,14 @@
                         <td>{{product.title}}</td>
                         <td class="text-warning">Null</td>
                         <td>
-                            <a href="{{path('admin_edit',{'id':product.id})}}" class="btn btn-secondary">Editer</a>
+                            <a href="{{path('admin_edit',{'id':product.id})}}"
+                                class="genric-btn success radius small">Editer</a>
 
                             <form action="{{ path('admin_delete',{'id':product.id})}}" method="post"
                                 onsubmit="confirm('voulez-vous vraiment supprimer ?')">
                                 <input type="hidden" name="_token" value="{{csrf_token('delete'~ product.id)}}">
                                 <input type="hidden" name="_method" name="DELETE">
-                                <button type="submit" class="btn btn-danger">Suprimmer</button>
+                                <button type="submit" class="genric-btn danger radius small">Suprimmer</button>
 
                             </form>
                         </td>

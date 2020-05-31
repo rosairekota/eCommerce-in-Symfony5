@@ -1,0 +1,49 @@
+{% extends "base.html.twig" %}
+{% block body %}
+
+<section class="blog_area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="blog_left_sidebar">
+                    {% for post in posts %}
+                    <article class="blog_item">
+                        <div class="blog_item_img">
+                            <img class="card-img rounded-0" src="{{asset('assets/img/blog/single_blog_1.png')}}" alt="">
+                            <a href="#" class="blog_item_date">
+                                <h3>{{post.createdAt|date("d")}}</h3>
+                                <p>{{dateFR(post.createdAt|date('F'))}} {{post.createdAt|date('Y')}}</p>
+                            </a>
+                        </div>
+
+                        <div class="blog_details">
+                            <a class="d-inline-block" href="{{path('blog_show',{id:post.id})}}">
+                                <h2>{{post.title}}</h2>
+                            </a>
+                            <p>{{post.description}}.</p>
+                            <ul class="blog-info-link">
+                                <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
+                                <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                            </ul>
+                        </div>
+                    </article>
+                    {% endfor %}
+
+
+                    <nav class=" justify-content-center d-flex">
+                        <ul class="pagination">
+
+                            {{ knp_pagination_render(posts) }}
+
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                {% include "blog/_sidebar.html.twig" %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock body %}
